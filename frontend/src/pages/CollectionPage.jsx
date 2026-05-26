@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Star, X } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import GodImage1 from '../assets/1.jpg';
 import GodImage2 from '../assets/2.png';
@@ -8,10 +9,52 @@ import GodImage4 from '../assets/4.jpg';
 import GodImage5 from '../assets/5.png';
 import GodImage6 from '../assets/6.jpg';
 import AnimalImage1 from '../assets/7.jpg';
+import DetailImage1 from '../assets/8.jpg';
+import DetailImage2 from '../assets/9.jpg';
 import AnimalImage2 from '../assets/10.jpg';
 import AnimalImage3 from '../assets/11.jpg';
+import DetailImage3 from '../assets/12.jpg';
+import DetailImage4 from '../assets/13.png';
+import DetailImage5 from '../assets/14.jpg';
+import BuddhaImage from '../assets/Buddha.jpeg';
 import Paint from '../assets/Paint.jpg';
 import './CollectionPage.css';
+
+const sculptureGalleryPool = [
+  GodImage1,
+  GodImage2,
+  GodImage3,
+  GodImage4,
+  GodImage5,
+  GodImage6,
+  AnimalImage1,
+  AnimalImage2,
+  AnimalImage3,
+  DetailImage1,
+  DetailImage2,
+  DetailImage3,
+  DetailImage4,
+  DetailImage5,
+  BuddhaImage
+];
+
+const buildSculptureGallery = (name, leadImage) =>
+  [leadImage, ...sculptureGalleryPool.filter((image) => image !== leadImage)]
+    .slice(0, 6)
+    .map((src, index) => ({
+      src,
+      alt: `${name} gallery view ${index + 1}`,
+      fit: 'contain'
+    }));
+
+const buildPaintingGallery = (name) => [
+  { src: Paint, alt: `${name} detail view 1`, fit: 'cover', position: '50% 8%' },
+  { src: Paint, alt: `${name} detail view 2`, fit: 'cover', position: '50% 24%' },
+  { src: Paint, alt: `${name} detail view 3`, fit: 'cover', position: '50% 38%' },
+  { src: Paint, alt: `${name} detail view 4`, fit: 'cover', position: '50% 52%' },
+  { src: Paint, alt: `${name} detail view 5`, fit: 'cover', position: '50% 68%' },
+  { src: Paint, alt: `${name} detail view 6`, fit: 'cover', position: '50% 84%' }
+];
 
 const sculptureCollections = {
   gods: {
@@ -21,12 +64,66 @@ const sculptureCollections = {
       'Sacred marble sculptures created for pooja spaces, sanctums, and devotional interiors.',
     imageVariant: 'god',
     items: [
-      { name: 'Buddha', background: 'from-[#e7dfd0] via-[#f6f1e8] to-[#a58a66]', image: GodImage1 },
-      { name: 'Krishna', background: 'from-[#eadfce] via-[#f8f3eb] to-[#8d7a62]', image: GodImage2 },
-      { name: 'Lakshmi', background: 'from-[#efe3d6] via-[#faf6ee] to-[#b89173]', image: GodImage3 },
-      { name: 'Shiva', background: 'from-[#d9ddd9] via-[#f4f1ea] to-[#82867c]', image: GodImage4 },
-      { name: 'Natraj', background: 'from-[#eadfce] via-[#faf4ec] to-[#97684a]', image: GodImage5 },
-      { name: 'Ganesha', background: 'from-[#ece5d8] via-[#faf7f0] to-[#9f8c72]', image: GodImage6 }
+      {
+        name: 'Buddha',
+        background: 'from-[#e7dfd0] via-[#f6f1e8] to-[#a58a66]',
+        image: GodImage1,
+        rating: 4.9,
+        material: 'Hand-carved white marble',
+        description:
+          'A serene Buddha form shaped for meditation corners, temple rooms, and calm hospitality interiors.',
+        gallery: buildSculptureGallery('Buddha', GodImage1)
+      },
+      {
+        name: 'Krishna',
+        background: 'from-[#eadfce] via-[#f8f3eb] to-[#8d7a62]',
+        image: GodImage2,
+        rating: 4.8,
+        material: 'Polished marble stone',
+        description:
+          'An expressive Krishna sculpture with refined ornament work for altar settings and statement devotional displays.',
+        gallery: buildSculptureGallery('Krishna', GodImage2)
+      },
+      {
+        name: 'Lakshmi',
+        background: 'from-[#efe3d6] via-[#faf6ee] to-[#b89173]',
+        image: GodImage3,
+        rating: 4.9,
+        material: 'Premium hand-finished marble',
+        description:
+          'A graceful Lakshmi piece designed to bring warmth, detail, and sacred character into prayer-led interiors.',
+        gallery: buildSculptureGallery('Lakshmi', GodImage3)
+      },
+      {
+        name: 'Shiva',
+        background: 'from-[#d9ddd9] via-[#f4f1ea] to-[#82867c]',
+        image: GodImage4,
+        rating: 4.9,
+        material: 'Solid white marble',
+        description:
+          'A balanced Shiva sculpture with soft contours and temple-inspired detailing for elegant spiritual spaces.',
+        gallery: buildSculptureGallery('Shiva', GodImage4)
+      },
+      {
+        name: 'Natraj',
+        background: 'from-[#eadfce] via-[#faf4ec] to-[#97684a]',
+        image: GodImage5,
+        rating: 4.7,
+        material: 'Artisan carved marble',
+        description:
+          'A dramatic Natraj composition crafted to anchor foyers, sanctums, and high-visibility feature walls.',
+        gallery: buildSculptureGallery('Natraj', GodImage5)
+      },
+      {
+        name: 'Ganesha',
+        background: 'from-[#ece5d8] via-[#faf7f0] to-[#9f8c72]',
+        image: GodImage6,
+        rating: 4.9,
+        material: 'Museum-grade marble finish',
+        description:
+          'A richly detailed Ganesha sculpture suited for welcoming entrances, pooja rooms, and gifting collections.',
+        gallery: buildSculptureGallery('Ganesha', GodImage6)
+      }
     ]
   },
   animals: {
@@ -36,9 +133,36 @@ const sculptureCollections = {
       'Statement animal sculptures crafted for gardens, entrances, estates, and feature corners.',
     imageVariant: 'animal',
     items: [
-      { name: 'Elephant', background: 'from-[#dfe1da] via-[#f5f2eb] to-[#868780]', image: AnimalImage1 },
-      { name: 'Horse', background: 'from-[#efe3d6] via-[#f9f4ec] to-[#93694c]', image: AnimalImage2 },
-      { name: 'Royal Horse', background: 'from-[#e8e0d7] via-[#f7f3ec] to-[#7a7d80]', image: AnimalImage3 }
+      {
+        name: 'Elephant',
+        background: 'from-[#dfe1da] via-[#f5f2eb] to-[#868780]',
+        image: AnimalImage1,
+        rating: 4.8,
+        material: 'Weather-ready sculpted stone',
+        description:
+          'A dignified elephant sculpture created to frame thresholds, landscape paths, and grand exterior settings.',
+        gallery: buildSculptureGallery('Elephant', AnimalImage1)
+      },
+      {
+        name: 'Horse',
+        background: 'from-[#efe3d6] via-[#f9f4ec] to-[#93694c]',
+        image: AnimalImage2,
+        rating: 4.7,
+        material: 'Natural stone composite',
+        description:
+          'A strong horse form with flowing posture that works beautifully in courtyards, lawns, and luxury entrances.',
+        gallery: buildSculptureGallery('Horse', AnimalImage2)
+      },
+      {
+        name: 'Royal Horse',
+        background: 'from-[#e8e0d7] via-[#f7f3ec] to-[#7a7d80]',
+        image: AnimalImage3,
+        rating: 4.8,
+        material: 'Hand-finished premium stone',
+        description:
+          'A regal horse sculpture designed to create movement and scale in outdoor estates and formal reception zones.',
+        gallery: buildSculptureGallery('Royal Horse', AnimalImage3)
+      }
     ]
   }
 };
@@ -51,9 +175,36 @@ const paintingCollections = {
       'Expressive portrait paintings layered with rich color, heritage character, and gallery warmth.',
     imageVariant: 'painting',
     items: [
-      { name: 'Royal Portrait', background: 'from-[#6b3249] via-[#a34c5f] to-[#d98969]', image: Paint },
-      { name: 'Heritage Muse', background: 'from-[#7a2f47] via-[#b15363] to-[#f1a26a]', image: Paint },
-      { name: 'Color Reverie', background: 'from-[#5e3456] via-[#9a4e6b] to-[#e59a70]', image: Paint }
+      {
+        name: 'Royal Portrait',
+        background: 'from-[#6b3249] via-[#a34c5f] to-[#d98969]',
+        image: Paint,
+        rating: 4.8,
+        material: 'Oil on canvas',
+        description:
+          'A collector-style portrait built with warm pigments and classic depth for refined living and display spaces.',
+        gallery: buildPaintingGallery('Royal Portrait')
+      },
+      {
+        name: 'Heritage Muse',
+        background: 'from-[#7a2f47] via-[#b15363] to-[#f1a26a]',
+        image: Paint,
+        rating: 4.7,
+        material: 'Layered acrylic on canvas',
+        description:
+          'A heritage-inspired composition with soft drama, textured brushwork, and a gallery-ready presence.',
+        gallery: buildPaintingGallery('Heritage Muse')
+      },
+      {
+        name: 'Color Reverie',
+        background: 'from-[#5e3456] via-[#9a4e6b] to-[#e59a70]',
+        image: Paint,
+        rating: 4.8,
+        material: 'Mixed media canvas',
+        description:
+          'A vibrant portrait piece that adds artistic energy and warm storytelling to curated interior palettes.',
+        gallery: buildPaintingGallery('Color Reverie')
+      }
     ]
   },
   devotional: {
@@ -63,9 +214,36 @@ const paintingCollections = {
       'Sacred paintings composed for prayer rooms, calm interiors, and spiritually rooted spaces.',
     imageVariant: 'painting',
     items: [
-      { name: 'Temple Grace', background: 'from-[#5d3a3e] via-[#8b5950] to-[#d5a16d]', image: Paint },
-      { name: 'Sacred Canvas', background: 'from-[#72413f] via-[#9e6455] to-[#e0ac70]', image: Paint },
-      { name: 'Divine Reflection', background: 'from-[#66344e] via-[#9d5569] to-[#e39e72]', image: Paint }
+      {
+        name: 'Temple Grace',
+        background: 'from-[#5d3a3e] via-[#8b5950] to-[#d5a16d]',
+        image: Paint,
+        rating: 4.9,
+        material: 'Oil and pigment on canvas',
+        description:
+          'A devotional artwork composed to bring calm rhythm, color depth, and spiritual focus into private spaces.',
+        gallery: buildPaintingGallery('Temple Grace')
+      },
+      {
+        name: 'Sacred Canvas',
+        background: 'from-[#72413f] via-[#9e6455] to-[#e0ac70]',
+        image: Paint,
+        rating: 4.8,
+        material: 'Hand-finished canvas painting',
+        description:
+          'A balanced sacred composition made for pooja rooms, boutique hospitality interiors, and serene home corners.',
+        gallery: buildPaintingGallery('Sacred Canvas')
+      },
+      {
+        name: 'Divine Reflection',
+        background: 'from-[#66344e] via-[#9d5569] to-[#e39e72]',
+        image: Paint,
+        rating: 4.9,
+        material: 'Textured mixed media canvas',
+        description:
+          'A rich devotional painting with layered tones and a contemplative finish suited to elegant spiritual spaces.',
+        gallery: buildPaintingGallery('Divine Reflection')
+      }
     ]
   }
 };
@@ -108,12 +286,12 @@ const CategoryButton = ({ active, label, onClick }) => (
   </button>
 );
 
-const ActionButton = ({ label, filled = false }) => (
+const ActionButton = ({ label, filled = false, className = '' }) => (
   <motion.button
     type="button"
     initial="rest"
     whileHover="hover"
-    className={`collection-action-button ${filled ? 'is-filled' : ''}`}
+    className={`collection-action-button ${filled ? 'is-filled' : ''} ${className}`.trim()}
   >
     <span className="collection-action-label">{label}</span>
     <motion.span
@@ -127,38 +305,147 @@ const ActionButton = ({ label, filled = false }) => (
   </motion.button>
 );
 
-const ProductCard = ({ item, categoryTitle, imageVariant }) => (
-  <motion.article
-    variants={cardReveal}
-    whileHover={{ y: -6 }}
-    className="collection-card group"
-  >
-    <div className="collection-card-media">
-      <div className={`collection-card-gradient absolute inset-0 bg-gradient-to-br ${item.background}`}>
-        <div className="marble-texture absolute inset-0 opacity-25" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(0,0,0,0.08))]" />
-        <img
-          src={item.image}
-          alt={`${item.name} showcase`}
-          className={`collection-card-image collection-card-image--${imageVariant}`}
-          loading="lazy"
-        />
+const ProductCard = ({ item, categoryTitle, imageVariant, onOpen }) => {
+  const handleOpen = () => onOpen({ ...item, categoryTitle, imageVariant });
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleOpen();
+    }
+  };
+
+  return (
+    <motion.article
+      variants={cardReveal}
+      whileHover={{ y: -6 }}
+      className="collection-card group"
+      role="button"
+      tabIndex={0}
+      onClick={handleOpen}
+      onKeyDown={handleKeyDown}
+      aria-label={`Open ${item.name} details`}
+    >
+      <div className="collection-card-media">
+        <div className={`collection-card-gradient absolute inset-0 bg-gradient-to-br ${item.background}`}>
+          <div className="marble-texture absolute inset-0 opacity-25" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(0,0,0,0.08))]" />
+          <img
+            src={item.image}
+            alt={`${item.name} showcase`}
+            className={`collection-card-image collection-card-image--${imageVariant}`}
+            loading="lazy"
+          />
+        </div>
+
+        <div className="collection-card-copy">
+          <p className="collection-card-kicker">{categoryTitle}</p>
+          <h3 className="collection-card-title">{item.name}</h3>
+        </div>
       </div>
 
-      <div className="collection-card-copy">
-        <p className="collection-card-kicker">{categoryTitle}</p>
-        <h3 className="collection-card-title">{item.name}</h3>
+      <div className="collection-card-body">
+        <div className="collection-card-actions">
+          <ActionButton label="Add to Cart" />
+          <ActionButton label="Buy Now" filled />
+        </div>
       </div>
-    </div>
+    </motion.article>
+  );
+};
 
-    <div className="collection-card-body">
-      <div className="collection-card-actions">
-        <ActionButton label="Add to Cart" />
-        <ActionButton label="Buy Now" filled />
-      </div>
-    </div>
-  </motion.article>
-);
+const ProductModal = ({ product, activeImageIndex, onImageChange, onClose }) => {
+  const activeImage = product.gallery[activeImageIndex] ?? product.gallery[0];
+
+  return (
+    <motion.div
+      className="collection-modal-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        key={`${product.categoryTitle}-${product.name}`}
+        className="collection-modal"
+        initial={{ opacity: 0, y: 24, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 24, scale: 0.98 }}
+        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        onClick={(event) => event.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="collection-product-title"
+      >
+        <button
+          type="button"
+          className="collection-modal-close"
+          onClick={onClose}
+          aria-label="Close product details"
+        >
+          <X size={18} strokeWidth={1.75} />
+        </button>
+
+        <div className="collection-modal-media">
+          <div className="collection-modal-image-wrap marble-texture">
+            <img
+              src={activeImage.src}
+              alt={activeImage.alt}
+              className={`collection-modal-image ${
+                activeImage.fit === 'cover' ? 'collection-modal-image--cover' : 'collection-modal-image--contain'
+              }`}
+              style={activeImage.position ? { objectPosition: activeImage.position } : undefined}
+            />
+          </div>
+
+          <div className="collection-modal-bullets" aria-label={`${product.name} image gallery`}>
+            {product.gallery.map((image, index) => (
+              <button
+                key={`${product.name}-${image.alt}-${index}`}
+                type="button"
+                className={`collection-modal-bullet ${activeImageIndex === index ? 'is-active' : ''}`}
+                onClick={() => onImageChange(index)}
+                aria-label={`Show image ${index + 1} for ${product.name}`}
+              >
+                <span className="collection-modal-bullet-core" />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="collection-modal-content">
+          <div className="collection-modal-rating" aria-label={`Rated ${product.rating} out of 5`}>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <Star
+                key={`${product.name}-star-${index}`}
+                size={14}
+                strokeWidth={1.6}
+                fill={index < Math.round(product.rating) ? 'currentColor' : 'transparent'}
+              />
+            ))}
+            <span>{product.rating.toFixed(1)}</span>
+          </div>
+
+          <h2 id="collection-product-title" className="collection-modal-title">
+            {product.name}
+          </h2>
+
+          <div className="collection-modal-material">
+            <span>Material</span>
+            <p>{product.material}</p>
+          </div>
+
+          <p className="collection-modal-description">{product.description}</p>
+
+          <div className="collection-modal-actions">
+            <ActionButton label="Add to Cart" className="collection-modal-action" />
+            <ActionButton label="Buy Now" filled className="collection-modal-action" />
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const CollectionSection = ({
   id,
@@ -166,7 +453,8 @@ const CollectionSection = ({
   title,
   collections,
   selectedCategory,
-  onCategoryChange
+  onCategoryChange,
+  onProductOpen
 }) => {
   const activeCollection = collections[selectedCategory];
 
@@ -216,6 +504,7 @@ const CollectionSection = ({
             item={item}
             categoryTitle={activeCollection.title}
             imageVariant={activeCollection.imageVariant}
+            onOpen={onProductOpen}
           />
         ))}
       </motion.div>
@@ -228,12 +517,45 @@ export default function CollectionPage() {
   const [selectedCollectionType, setSelectedCollectionType] = useState(
     searchParams.get('section') === 'paintings' ? 'paintings' : 'sculptures'
   );
+  const [selectedSculptureCategory, setSelectedSculptureCategory] = useState('gods');
+  const [selectedPaintingCategory, setSelectedPaintingCategory] = useState('portraits');
+  const [activeProduct, setActiveProduct] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const [selectedSculptureCategory, setSelectedSculptureCategory] = useState('gods');
-  const [selectedPaintingCategory, setSelectedPaintingCategory] = useState('portraits');
+
+  useEffect(() => {
+    if (!activeProduct) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setActiveProduct(null);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeProduct]);
+
+  const openProduct = (product) => {
+    setActiveProduct(product);
+    setActiveImageIndex(0);
+  };
+
+  const closeProduct = () => {
+    setActiveProduct(null);
+    setActiveImageIndex(0);
+  };
 
   const showCollectionSection = (type) => {
     setSelectedCollectionType(type);
@@ -301,6 +623,7 @@ export default function CollectionPage() {
             collections={sculptureCollections}
             selectedCategory={selectedSculptureCategory}
             onCategoryChange={setSelectedSculptureCategory}
+            onProductOpen={openProduct}
           />
         ) : (
           <CollectionSection
@@ -310,9 +633,21 @@ export default function CollectionPage() {
             collections={paintingCollections}
             selectedCategory={selectedPaintingCategory}
             onCategoryChange={setSelectedPaintingCategory}
+            onProductOpen={openProduct}
           />
         )}
       </div>
+
+      <AnimatePresence>
+        {activeProduct ? (
+          <ProductModal
+            product={activeProduct}
+            activeImageIndex={activeImageIndex}
+            onImageChange={setActiveImageIndex}
+            onClose={closeProduct}
+          />
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 }
