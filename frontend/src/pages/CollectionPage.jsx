@@ -4,10 +4,10 @@ import { Star, X } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import GodImage1 from '../assets/1.jpg';
 import GodImage2 from '../assets/2.png';
-import GodImage3 from '../assets/3.jpg';
-import GodImage4 from '../assets/4.jpg';
+import GodImage3 from '../assets/saraswathi.png';
+import GodImage4 from '../assets/sai.png';
 import GodImage5 from '../assets/5.png';
-import GodImage6 from '../assets/6.jpg';
+import GodImage6 from '../assets/ganesha.png';
 import AnimalImage1 from '../assets/7.jpg';
 import DetailImage1 from '../assets/8.jpg';
 import DetailImage2 from '../assets/9.jpg';
@@ -18,6 +18,12 @@ import DetailImage4 from '../assets/13.png';
 import DetailImage5 from '../assets/14.jpg';
 import BuddhaImage from '../assets/Buddha.jpeg';
 import Paint from '../assets/Paint.jpg';
+import Paint2 from '../assets/paint2.jpeg';
+import Paint3 from '../assets/paint3.jpeg';
+import Paint4 from '../assets/paint4.jpeg';
+import Paint5 from '../assets/paint5.jpeg';
+import Paint6 from '../assets/paint6.jpeg';
+import Paint7 from '../assets/paint7.jpeg';
 import './CollectionPage.css';
 
 const sculptureGalleryPool = [
@@ -47,13 +53,13 @@ const buildSculptureGallery = (name, leadImage) =>
       fit: 'contain'
     }));
 
-const buildPaintingGallery = (name) => [
-  { src: Paint, alt: `${name} detail view 1`, fit: 'cover', position: '50% 8%' },
-  { src: Paint, alt: `${name} detail view 2`, fit: 'cover', position: '50% 24%' },
-  { src: Paint, alt: `${name} detail view 3`, fit: 'cover', position: '50% 38%' },
-  { src: Paint, alt: `${name} detail view 4`, fit: 'cover', position: '50% 52%' },
-  { src: Paint, alt: `${name} detail view 5`, fit: 'cover', position: '50% 68%' },
-  { src: Paint, alt: `${name} detail view 6`, fit: 'cover', position: '50% 84%' }
+const buildPaintingGallery = (name, leadImage = Paint) => [
+  { src: leadImage, alt: `${name} detail view 1`, fit: 'cover', position: '50% 8%' },
+  { src: leadImage, alt: `${name} detail view 2`, fit: 'cover', position: '50% 24%' },
+  { src: leadImage, alt: `${name} detail view 3`, fit: 'cover', position: '50% 38%' },
+  { src: leadImage, alt: `${name} detail view 4`, fit: 'cover', position: '50% 52%' },
+  { src: leadImage, alt: `${name} detail view 5`, fit: 'cover', position: '50% 68%' },
+  { src: leadImage, alt: `${name} detail view 6`, fit: 'cover', position: '50% 84%' }
 ];
 
 const sculptureCollections = {
@@ -74,46 +80,46 @@ const sculptureCollections = {
           'A serene Buddha form shaped for meditation corners, temple rooms, and calm hospitality interiors.',
         gallery: buildSculptureGallery('Buddha', GodImage1)
       },
+      // {
+      //   name: 'Krishna',
+      //   background: 'from-[#eadfce] via-[#f8f3eb] to-[#8d7a62]',
+      //   image: GodImage2,
+      //   rating: 4.8,
+      //   material: 'Polished marble stone',
+      //   description:
+      //     'An expressive Krishna sculpture with refined ornament work for altar settings and statement devotional displays.',
+      //   gallery: buildSculptureGallery('Krishna', GodImage2)
+      // },
       {
-        name: 'Krishna',
-        background: 'from-[#eadfce] via-[#f8f3eb] to-[#8d7a62]',
-        image: GodImage2,
-        rating: 4.8,
-        material: 'Polished marble stone',
-        description:
-          'An expressive Krishna sculpture with refined ornament work for altar settings and statement devotional displays.',
-        gallery: buildSculptureGallery('Krishna', GodImage2)
-      },
-      {
-        name: 'Lakshmi',
+        name: 'Saraswati',
         background: 'from-[#efe3d6] via-[#faf6ee] to-[#b89173]',
         image: GodImage3,
         rating: 4.9,
         material: 'Premium hand-finished marble',
         description:
-          'A graceful Lakshmi piece designed to bring warmth, detail, and sacred character into prayer-led interiors.',
-        gallery: buildSculptureGallery('Lakshmi', GodImage3)
+          'A graceful Saraswati piece designed to bring warmth, detail, and sacred character into prayer-led interiors.',
+        gallery: buildSculptureGallery('Saraswati', GodImage3)
       },
       {
-        name: 'Shiva',
+        name: 'Sai Baba',
         background: 'from-[#d9ddd9] via-[#f4f1ea] to-[#82867c]',
         image: GodImage4,
         rating: 4.9,
         material: 'Solid white marble',
         description:
-          'A balanced Shiva sculpture with soft contours and temple-inspired detailing for elegant spiritual spaces.',
-        gallery: buildSculptureGallery('Shiva', GodImage4)
+          'A gracefully crafted Sai Baba marble sculpture designed for peaceful and devotional spaces.',
+        gallery: buildSculptureGallery('Sai Baba', GodImage4)
       },
-      {
-        name: 'Natraj',
-        background: 'from-[#eadfce] via-[#faf4ec] to-[#97684a]',
-        image: GodImage5,
-        rating: 4.7,
-        material: 'Artisan carved marble',
-        description:
-          'A dramatic Natraj composition crafted to anchor foyers, sanctums, and high-visibility feature walls.',
-        gallery: buildSculptureGallery('Natraj', GodImage5)
-      },
+      // {
+      //   name: 'Natraj',
+      //   background: 'from-[#eadfce] via-[#faf4ec] to-[#97684a]',
+      //   image: GodImage5,
+      //   rating: 4.7,
+      //   material: 'Artisan carved marble',
+      //   description:
+      //     'A dramatic Natraj composition crafted to anchor foyers, sanctums, and high-visibility feature walls.',
+      //   gallery: buildSculptureGallery('Natraj', GodImage5)
+      // },
       {
         name: 'Ganesha',
         background: 'from-[#ece5d8] via-[#faf7f0] to-[#9f8c72]',
@@ -153,16 +159,16 @@ const sculptureCollections = {
           'A strong horse form with flowing posture that works beautifully in courtyards, lawns, and luxury entrances.',
         gallery: buildSculptureGallery('Horse', AnimalImage2)
       },
-      {
-        name: 'Royal Horse',
-        background: 'from-[#e8e0d7] via-[#f7f3ec] to-[#7a7d80]',
-        image: AnimalImage3,
-        rating: 4.8,
-        material: 'Hand-finished premium stone',
-        description:
-          'A regal horse sculpture designed to create movement and scale in outdoor estates and formal reception zones.',
-        gallery: buildSculptureGallery('Royal Horse', AnimalImage3)
-      }
+      // {
+      //   name: 'Royal Horse',
+      //   background: 'from-[#e8e0d7] via-[#f7f3ec] to-[#7a7d80]',
+      //   image: AnimalImage3,
+      //   rating: 4.8,
+      //   material: 'Hand-finished premium stone',
+      //   description:
+      //     'A regal horse sculpture designed to create movement and scale in outdoor estates and formal reception zones.',
+      //   gallery: buildSculptureGallery('Royal Horse', AnimalImage3)
+      // }
     ]
   }
 };
@@ -176,34 +182,74 @@ const paintingCollections = {
     imageVariant: 'painting',
     items: [
       {
-        name: 'Royal Portrait',
+        name: 'A Beautiful Lady',
         background: 'from-[#6b3249] via-[#a34c5f] to-[#d98969]',
         image: Paint,
         rating: 4.8,
         material: 'Oil on canvas',
         description:
           'A collector-style portrait built with warm pigments and classic depth for refined living and display spaces.',
-        gallery: buildPaintingGallery('Royal Portrait')
+        gallery: buildPaintingGallery('Royal Portrait', Paint)
       },
       {
-        name: 'Heritage Muse',
+        name: 'Illusional Self Portrait',
         background: 'from-[#7a2f47] via-[#b15363] to-[#f1a26a]',
-        image: Paint,
+        image: Paint4,
         rating: 4.7,
         material: 'Layered acrylic on canvas',
         description:
           'A heritage-inspired composition with soft drama, textured brushwork, and a gallery-ready presence.',
-        gallery: buildPaintingGallery('Heritage Muse')
+        gallery: buildPaintingGallery('Heritage Muse', Paint4)
       },
       {
-        name: 'Color Reverie',
+        name: 'Classic Dancer',
         background: 'from-[#5e3456] via-[#9a4e6b] to-[#e59a70]',
-        image: Paint,
+        image: Paint5,
         rating: 4.8,
         material: 'Mixed media canvas',
         description:
           'A vibrant portrait piece that adds artistic energy and warm storytelling to curated interior palettes.',
-        gallery: buildPaintingGallery('Color Reverie')
+        gallery: buildPaintingGallery('Color Reverie', Paint5)
+      },
+      {
+        name: 'Man In Lake ',
+        background: 'from-[#6b3249] via-[#a34c5f] to-[#d98969]',
+        image: Paint6,
+        rating: 4.8,
+        material: 'Oil on canvas',
+        description:
+          'A luminous portrait draped in golden tones, crafted for elegant interiors and curated art collections.',
+        gallery: buildPaintingGallery('Golden Veil', Paint6)
+      },
+      {
+        name: 'The Ship',
+        background: 'from-[#7a2f47] via-[#b15363] to-[#f1a26a]',
+        image: Paint7,
+        rating: 4.7,
+        material: 'Layered acrylic on canvas',
+        description:
+          'A bold portrait with rich crimson undertones and expressive brushwork for statement wall displays.',
+        gallery: buildPaintingGallery('Crimson Grace', Paint7)
+      },
+      {
+        name: 'Dancing Posture ',
+        background: 'from-[#5e3456] via-[#9a4e6b] to-[#e59a70]',
+        image: Paint2,
+        rating: 4.9,
+        material: 'Mixed media canvas',
+        description:
+          'A dreamy floral portrait layered with texture and color depth for refined living and gallery spaces.',
+        gallery: buildPaintingGallery('Mystic Bloom', Paint2)
+      },
+      {
+        name: 'Saffron Muse',
+        background: 'from-[#6b3249] via-[#a34c5f] to-[#d98969]',
+        image: Paint3,
+        rating: 4.8,
+        material: 'Oil on canvas',
+        description:
+          'A warm saffron-toned portrait that brings heritage character and artistic depth to any interior.',
+        gallery: buildPaintingGallery('Saffron Muse', Paint3)
       }
     ]
   },
