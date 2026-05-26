@@ -222,7 +222,7 @@ const FormSection = ({ title, children, index }) => (
     variants={FADE_UP}
     className="glass-card rounded-2xl p-8 md:p-10 relative"
   >
-    <div className="absolute -left-3 -top-3 w-8 h-8 rounded-full bg-taupe-brown text-coconut-milk flex items-center justify-center text-sm font-medium">
+    <div className="absolute -left-3 -top-3 w-8 h-8 rounded-full bg-[#012E2A] text-white flex items-center justify-center text-sm font-medium">
       {index}
     </div>
     <h3 className="text-xl font-serif mb-6 text-neutral-900 tracking-[2px] pb-4 border-b border-neutral-200/50">{title}</h3>
@@ -306,16 +306,16 @@ const LuxuryBudgetSlider = ({ min = 30000, max = 1000000, labelMin = '₹30k', l
   const percentage = ((value - min) / (max - min)) * 100;
 
   return (
-    <div className="relative py-6 px-4 md:px-8 bg-[#F5F2EA]/80 backdrop-blur-md rounded-2xl border border-[#766B5D]/10 shadow-sm marble-texture overflow-visible">
+    <div className="relative py-6 px-4 md:px-8 bg-[#F5F2EA]/80 backdrop-blur-md rounded-2xl border border-[#012E2A]/10 shadow-sm marble-texture overflow-visible">
       <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none rounded-2xl" />
       
       <div className="relative z-10 text-center mb-8">
-        <h4 className="text-[#766B5D] font-serif text-lg font-semibold tracking-wide mb-2">Estimated Budget Starting From</h4>
+        <h4 className="text-[#012E2A] font-serif text-lg font-semibold tracking-wide mb-2">Estimated Budget Starting From</h4>
         <motion.div 
           key={value}
           initial={{ opacity: 0.8, y: 2 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-3xl font-serif text-[#766B5D]"
+          className="text-3xl font-serif text-[#012E2A]"
         >
           {formatPrice(value)}
         </motion.div>
@@ -332,7 +332,7 @@ const LuxuryBudgetSlider = ({ min = 30000, max = 1000000, labelMin = '₹30k', l
               className="absolute -top-10 left-0 w-full pointer-events-none"
             >
               <div 
-                className="absolute transform -translate-x-1/2 bg-white text-[#766B5D] px-3 py-1.5 rounded-full font-serif shadow-md border border-[#766B5D]/10 text-sm font-medium"
+                className="absolute transform -translate-x-1/2 bg-white text-[#012E2A] px-3 py-1.5 rounded-full font-serif shadow-md border border-[#012E2A]/10 text-sm font-medium"
                 style={{ left: `calc(${percentage}% + ${14 - percentage * 0.28}px)` }}
               >
                 {formatPrice(value)}

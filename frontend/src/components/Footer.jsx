@@ -100,7 +100,7 @@ const Footer = () => {
                 <span className="footer-hover-line absolute -bottom-1 left-0 h-[1px] bg-[#012E2A]"></span>
               </Link></li>
               <li><Link to="/about" className="hover:text-neutral-900 transition-colors inline-block relative group">
-                About
+                About Us
                 <span className="footer-hover-line absolute -bottom-1 left-0 h-[1px] bg-[#012E2A]"></span>
               </Link></li>
               <li><Link to="/contact" className="hover:text-neutral-900 transition-colors inline-block relative group">
@@ -117,7 +117,7 @@ const Footer = () => {
               <li className="flex items-start gap-3 hover:text-neutral-900 transition-colors group cursor-pointer">
                 <MapPin size={18} strokeWidth={1.5} className="mt-0.5 shrink-0" />
                 <span className="leading-relaxed relative inline-block">
-                  Mahabalipuram,<br />Tamil Nadu, India
+                  Chennai,<br />Tamil Nadu, India
                   <span className="footer-hover-line absolute -bottom-1 left-0 h-[1px] bg-[#012E2A]"></span>
                 </span>
               </li>

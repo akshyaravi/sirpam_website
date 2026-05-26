@@ -5,7 +5,7 @@
   --color-coconut-milk: #EBE9DD;
   --color-sage: #A8A696;
   --color-warm-beige: #D4C7AF;
-  --color-taupe-brown: #766B5D;
+  --color-taupe-brown: #012E2A;
   --color-emerald-dark: #012E2A;
 
   --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
@@ -85,7 +85,7 @@
     -webkit-appearance: none;
     appearance: none;
     background: rgba(118, 107, 93, 0.15);
-    background-image: linear-gradient(to right, #766B5D, #A8A696);
+    background-image: linear-gradient(to right, #012E2A, #A8A696);
     background-repeat: no-repeat;
   }
   
@@ -95,7 +95,7 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: #766B5D;
+    background: #012E2A;
     border: 3px solid white;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(118, 107, 93, 0.4);
@@ -112,7 +112,7 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: #766B5D;
+    background: #012E2A;
     border: 3px solid white;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(118, 107, 93, 0.4);
