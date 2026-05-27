@@ -652,6 +652,15 @@ export default function CollectionPage() {
             className="collection-split-grid"
           >
             <div className="collection-split-panel collection-split-panel--sculptures">
+              <video
+                className="collection-split-video"
+                src="/skull.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-hidden="true"
+              />
               <div className="collection-split-texture marble-texture" />
               <div className="collection-split-copy">
                 <p className="collection-kicker">Collection One</p>
@@ -670,6 +679,15 @@ export default function CollectionPage() {
             </div>
 
             <div className="collection-split-panel collection-split-panel--paintings">
+              <video
+                className="collection-split-video"
+                src="/paint.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-hidden="true"
+              />
               <div className="collection-split-texture marble-texture" />
               <div className="collection-split-copy">
                 <p className="collection-kicker">Collection Two</p>
