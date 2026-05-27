@@ -351,7 +351,7 @@ const ActionButton = ({ label, filled = false, className = '' }) => (
   </motion.button>
 );
 
-const ProductCard = ({ item, categoryTitle, imageVariant, onOpen }) => {
+const ProductCard = ({ item, categoryTitle, imageVariant, onOpen, featured = false }) => {
   const handleOpen = () => onOpen({ ...item, categoryTitle, imageVariant });
 
   const handleKeyDown = (event) => {
@@ -365,7 +365,7 @@ const ProductCard = ({ item, categoryTitle, imageVariant, onOpen }) => {
     <motion.article
       variants={cardReveal}
       whileHover={{ y: -6 }}
-      className="collection-card group"
+      className={`collection-card group ${featured ? 'is-featured' : ''}`}
       role="button"
       tabIndex={0}
       onClick={handleOpen}
@@ -383,18 +383,12 @@ const ProductCard = ({ item, categoryTitle, imageVariant, onOpen }) => {
             loading="lazy"
           />
         </div>
-
-        <div className="collection-card-copy">
-          <p className="collection-card-kicker">{categoryTitle}</p>
-          <h3 className="collection-card-title">{item.name}</h3>
-        </div>
       </div>
 
-      <div className="collection-card-body">
-        <div className="collection-card-actions">
-          <ActionButton label="Add to Cart" />
-          <ActionButton label="Buy Now" filled />
-        </div>
+      <div className="collection-card-copy">
+        <p className="collection-card-kicker">{categoryTitle}</p>
+        <h3 className="collection-card-title">{item.name}</h3>
+        <p className="collection-card-price">{item.price ?? '₹25,000'}</p>
       </div>
     </motion.article>
   );
@@ -503,6 +497,29 @@ const CollectionSection = ({
   onProductOpen
 }) => {
   const activeCollection = collections[selectedCategory];
+  const [activeProductIndexes, setActiveProductIndexes] = useState({});
+  const activeProductIndex = activeProductIndexes[selectedCategory] ?? 0;
+  const setCategoryProductIndex = (index) => {
+    setActiveProductIndexes((currentIndexes) => ({
+      ...currentIndexes,
+      [selectedCategory]: index
+    }));
+  };
+  const productCount = activeCollection.items.length;
+  const productOffsets = productCount >= 3
+    ? [-1, 0, 1]
+    : activeCollection.items.map((_, index) => index - activeProductIndex);
+  const visibleProducts = productCount > 0
+    ? productOffsets.map((offset) => {
+        const index = (activeProductIndex + offset + productCount) % productCount;
+
+        return {
+          item: activeCollection.items[index],
+          index,
+          featured: offset === 0
+        };
+      })
+    : [];
 
   return (
     <motion.section
@@ -538,22 +555,35 @@ const CollectionSection = ({
       </div>
 
       <motion.div
-        key={selectedCategory}
+        key={`${selectedCategory}-${activeProductIndex}`}
         initial="hidden"
         animate="visible"
         variants={staggerCards}
         className="collection-grid"
       >
-        {activeCollection.items.map((item) => (
+        {visibleProducts.map(({ item, index, featured }) => (
           <ProductCard
-            key={`${selectedCategory}-${item.name}`}
+            key={`${selectedCategory}-${item.name}-${index}`}
             item={item}
             categoryTitle={activeCollection.title}
             imageVariant={activeCollection.imageVariant}
             onOpen={onProductOpen}
+            featured={featured}
           />
         ))}
       </motion.div>
+
+      <div className="collection-product-bullets" aria-label={`${activeCollection.title} products`}>
+        {activeCollection.items.map((item, index) => (
+          <button
+            key={`${selectedCategory}-${item.name}-bullet`}
+            type="button"
+            className={`collection-product-bullet ${activeProductIndex === index ? 'is-active' : ''}`}
+            onClick={() => setCategoryProductIndex(index)}
+            aria-label={`Show ${item.name}`}
+          />
+        ))}
+      </div>
     </motion.section>
   );
 };
@@ -660,7 +690,7 @@ export default function CollectionPage() {
         </div>
       </section>
 
-      <div id="collection-listing" className="collection-content">
+      <div id="collection-listing" className="collection-content collection-content--green">
         {selectedCollectionType === 'sculptures' ? (
           <CollectionSection
             id="sculpture-listing"
