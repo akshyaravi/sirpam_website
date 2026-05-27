@@ -351,7 +351,12 @@ const ActionButton = ({ label, filled = false, className = '' }) => (
   </motion.button>
 );
 
-const ProductCard = ({ item, categoryTitle, imageVariant, onOpen, featured = false }) => {
+const ProductCard = ({
+  item,
+  categoryTitle,
+  imageVariant,
+  onOpen
+}) => {
   const handleOpen = () => onOpen({ ...item, categoryTitle, imageVariant });
 
   const handleKeyDown = (event) => {
@@ -364,8 +369,7 @@ const ProductCard = ({ item, categoryTitle, imageVariant, onOpen, featured = fal
   return (
     <motion.article
       variants={cardReveal}
-      whileHover={{ y: -6 }}
-      className={`collection-card group ${featured ? 'is-featured' : ''}`}
+      className="collection-card group"
       role="button"
       tabIndex={0}
       onClick={handleOpen}
@@ -498,6 +502,7 @@ const CollectionSection = ({
 }) => {
   const activeCollection = collections[selectedCategory];
   const [activeProductIndexes, setActiveProductIndexes] = useState({});
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   const activeProductIndex = activeProductIndexes[selectedCategory] ?? 0;
   const setCategoryProductIndex = (index) => {
     setActiveProductIndexes((currentIndexes) => ({
@@ -520,6 +525,25 @@ const CollectionSection = ({
         };
       })
     : [];
+
+  useEffect(() => {
+    if (productCount <= 1 || isCarouselPaused) {
+      return undefined;
+    }
+
+    const autoSlideInterval = window.setInterval(() => {
+      setActiveProductIndexes((currentIndexes) => {
+        const currentIndex = currentIndexes[selectedCategory] ?? 0;
+
+        return {
+          ...currentIndexes,
+          [selectedCategory]: (currentIndex - 1 + productCount) % productCount
+        };
+      });
+    }, 5500);
+
+    return () => window.clearInterval(autoSlideInterval);
+  }, [isCarouselPaused, productCount, selectedCategory]);
 
   return (
     <motion.section
@@ -554,12 +578,10 @@ const CollectionSection = ({
         </div>
       </div>
 
-      <motion.div
-        key={`${selectedCategory}-${activeProductIndex}`}
-        initial="hidden"
-        animate="visible"
-        variants={staggerCards}
+      <div
         className="collection-grid"
+        onMouseEnter={() => setIsCarouselPaused(true)}
+        onMouseLeave={() => setIsCarouselPaused(false)}
       >
         {visibleProducts.map(({ item, index, featured }) => (
           <ProductCard
@@ -571,7 +593,7 @@ const CollectionSection = ({
             featured={featured}
           />
         ))}
-      </motion.div>
+      </div>
 
       <div className="collection-product-bullets" aria-label={`${activeCollection.title} products`}>
         {activeCollection.items.map((item, index) => (
@@ -580,6 +602,8 @@ const CollectionSection = ({
             type="button"
             className={`collection-product-bullet ${activeProductIndex === index ? 'is-active' : ''}`}
             onClick={() => setCategoryProductIndex(index)}
+            onMouseEnter={() => setIsCarouselPaused(true)}
+            onMouseLeave={() => setIsCarouselPaused(false)}
             aria-label={`Show ${item.name}`}
           />
         ))}

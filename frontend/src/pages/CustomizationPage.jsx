@@ -543,6 +543,8 @@ const SculptureForm = () => {
 // ==========================================
 
 const PaintingForm = () => {
+  const [selectedOrientation, setSelectedOrientation] = useState(null);
+
   return (
     <div className="space-y-8">
       <FormSection index={1} title="Customer Details">
@@ -577,9 +579,10 @@ const PaintingForm = () => {
         <SelectionGrid options={['Warm tones', 'Neutral luxury', 'Black & white', 'Gold accents', 'Earthy tones', 'Vibrant colors']} />
         <div className="mt-6 pt-6 border-t border-neutral-200">
           <p className="text-sm text-neutral-600 mb-3 flex items-center gap-2"><ImageIcon size={16}/> Upload room image for color matching (Optional)</p>
-          <div className="border border-dashed border-neutral-300 rounded-xl p-4 text-center text-sm text-neutral-500 hover:bg-white cursor-pointer transition-colors">
+          <label className="block border border-dashed border-neutral-300 rounded-xl p-4 text-center text-sm text-neutral-500 hover:bg-white cursor-pointer transition-colors">
+            <input type="file" className="hidden" accept="image/*" />
             Click to upload room reference
-          </div>
+          </label>
         </div>
       </FormSection>
 
@@ -590,8 +593,18 @@ const PaintingForm = () => {
       <FormSection index={7} title="Painting Orientation">
         <div className="flex gap-4">
           {['Portrait', 'Landscape', 'Square'].map(ori => (
-            <div key={ori} className="flex-1 py-4 border border-neutral-200 rounded-xl text-center bg-white/50 cursor-pointer hover:border-warm-beige hover:bg-white">
-              <div className={`mx-auto border-2 border-neutral-300 mb-2 ${
+            <div 
+              key={ori} 
+              onClick={() => setSelectedOrientation(ori)}
+              className={`flex-1 py-4 border rounded-xl text-center cursor-pointer transition-all duration-300 ${
+                selectedOrientation === ori 
+                  ? 'border-taupe-brown bg-taupe-brown/5 shadow-sm text-taupe-brown' 
+                  : 'border-neutral-200 bg-white/50 hover:border-warm-beige hover:bg-white text-neutral-900'
+              }`}
+            >
+              <div className={`mx-auto border-2 mb-2 transition-colors duration-300 ${
+                selectedOrientation === ori ? 'border-taupe-brown' : 'border-neutral-300'
+              } ${
                 ori === 'Portrait' ? 'w-8 h-12' : 
                 ori === 'Landscape' ? 'w-12 h-8' : 'w-10 h-10'
               }`} />

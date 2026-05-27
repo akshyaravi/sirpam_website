@@ -22,14 +22,12 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden luxury-gradient">
+    <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden luxury-gradient marble-texture">
       
-      {/* Background Marble Texture */}
-      <div className="absolute inset-0 marble-texture pointer-events-none opacity-40 z-0"></div>
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] z-0" />
 
-      {/* Soft Ambient Glows */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-warm-beige/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-sage/20 rounded-full blur-3xl pointer-events-none"></div>
+
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center justify-center text-center">
         

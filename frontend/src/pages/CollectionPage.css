@@ -269,10 +269,10 @@
 }
 
 .collection-card {
-  flex: 0 1 216px;
+  flex: 0 1 228px;
   margin: 0;
   width: 100%;
-  max-width: 216px;
+  max-width: 228px;
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -294,8 +294,8 @@
 }
 
 .collection-card.is-featured {
-  flex-basis: 252px;
-  max-width: 252px;
+  flex-basis: 264px;
+  max-width: 264px;
   box-shadow: none;
 }
 
@@ -310,12 +310,12 @@
 
 .collection-card-media {
   position: relative;
-  height: 203px;
+  height: 214px;
   overflow: hidden;
 }
 
 .collection-card.is-featured .collection-card-media {
-  height: 222px;
+  height: 232px;
 }
 
 .collection-card-gradient {
@@ -382,7 +382,7 @@
 
 .collection-card-title {
   font-family: var(--font-sans);
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   font-weight: 400;
   line-height: 1.25;
   letter-spacing: 2px;
@@ -393,7 +393,7 @@
 .collection-card-price {
   margin-top: 0.4rem;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.85rem;
   letter-spacing: 0;
   color: #ffffff;
 }
