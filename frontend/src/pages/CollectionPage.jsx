@@ -537,10 +537,10 @@ const CollectionSection = ({
 
         return {
           ...currentIndexes,
-          [selectedCategory]: (currentIndex - 1 + productCount) % productCount
+          [selectedCategory]: (currentIndex + 1) % productCount
         };
       });
-    }, 5500);
+    }, 3000);
 
     return () => window.clearInterval(autoSlideInterval);
   }, [isCarouselPaused, productCount, selectedCategory]);
