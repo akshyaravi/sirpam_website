@@ -92,7 +92,7 @@
   margin-bottom: 0.75rem;
   font-family: var(--font-sans);
   font-size: 10px;
-  letter-spacing: 2px;
+ letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(118, 107, 93, 0.7);
 }
@@ -101,7 +101,7 @@
   font-family: var(--font-serif);
   font-size: 2.7rem;
   line-height: 1.02;
-  letter-spacing: 2px;
+  letter-spacing: 0.02em;
   color: var(--color-taupe-brown);
 }
 
@@ -111,7 +111,7 @@
   font-family: var(--font-serif);
   font-size: 1.125rem;
   line-height: 1.65;
-  letter-spacing: 2px;
+  letter-spacing: 0.01em;
   color: rgba(51, 44, 38, 0.8);
 }
 
@@ -129,7 +129,7 @@
   padding: 0.9rem 1.8rem;
   font-family: var(--font-sans);
   font-size: 10px;
-  letter-spacing: 2px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-emerald-dark);
   transition: all 0.3s ease;
@@ -314,12 +314,12 @@
 
 .collection-card-media {
   position: relative;
-  height: 214px;
+  height: 270px;
   overflow: hidden;
 }
 
 .collection-card.is-featured .collection-card-media {
-  height: 232px;
+  height: 290px;
 }
 
 .collection-card-gradient {

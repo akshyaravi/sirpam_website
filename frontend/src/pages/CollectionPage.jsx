@@ -104,6 +104,7 @@ const sculptureCollections = {
         name: 'Sai Baba',
         background: 'from-white via-white to-white',
         image: GodImage4,
+        imageStyle: { transform: 'translateY(-2%)' },
         rating: 4.9,
         material: 'Solid white marble',
         description:
@@ -384,6 +385,7 @@ const ProductCard = ({
             src={item.image}
             alt={`${item.name} showcase`}
             className={`collection-card-image collection-card-image--${imageVariant}`}
+            style={item.imageStyle}
             loading="lazy"
           />
         </div>
