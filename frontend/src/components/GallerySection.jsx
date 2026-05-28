@@ -22,7 +22,7 @@ const GalleryImage = ({ src, alt, label }) => {
   return (
     <div 
       ref={containerRef}
-      className="relative overflow-hidden aspect-[4/5] w-full max-w-[480px] mx-auto group cursor-pointer"
+      className="relative overflow-hidden aspect-[4/5] w-full max-w-[380px] mx-auto group cursor-pointer"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -32,7 +32,7 @@ const GalleryImage = ({ src, alt, label }) => {
         className="absolute inset-0 bg-coconut-milk z-20 origin-left"
         initial={{ x: 0 }}
         animate={{ x: isInView ? '101%' : 0 }}
-        transition={{ duration: 1.6, ease: [0.77, 0, 0.175, 1] }}
+        transition={{ duration: 2.2, ease: [0.77, 0, 0.175, 1] }}
       />
 
       {/* Image with Parallax Transform Origin */}
@@ -47,7 +47,7 @@ const GalleryImage = ({ src, alt, label }) => {
           y: isInView ? (isHovered ? (mousePos.y - 50) * -0.15 : [0, -8, 0]) : 0,
         }}
         transition={{
-          scale: { duration: 2.0, ease: [0.22, 1, 0.36, 1] },
+          scale: { duration: 2.6, ease: [0.22, 1, 0.36, 1] },
           x: { duration: 3.0, ease: "easeOut" },
           y: isHovered
             ? { duration: 3.0, ease: "easeOut" }
@@ -84,7 +84,7 @@ const GalleryText = ({ eyebrow, title, desc, link = '/collection' }) => {
   return (
     <motion.div 
       ref={ref}
-      className="p-10 md:p-16 flex flex-col items-center text-center"
+      className="p-8 md:p-12 flex flex-col items-center text-center"
       initial={{ opacity: 0, y: 28 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
       transition={{ duration: 1.4, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
