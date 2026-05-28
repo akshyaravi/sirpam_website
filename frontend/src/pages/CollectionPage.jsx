@@ -16,8 +16,10 @@ import AnimalImage3 from '../assets/11.jpg';
 import DetailImage3 from '../assets/12.jpg';
 import DetailImage4 from '../assets/14.jpg';
 import DetailImage5 from '../assets/14.jpg';
-import BuddhaImage from '../assets/buddha1.png';
+import BuddhaImage from '../assets/Buddha.jpeg';
 import Paint from '../assets/Paint.jpg';
+import Pic2 from '../assets/pic2.png';
+import Pic3 from '../assets/pic3.png';
 import Paint2 from '../assets/paint2.jpeg';
 import Paint3 from '../assets/paint3.jpeg';
 import Paint4 from '../assets/paint4.jpeg';
@@ -73,12 +75,12 @@ const sculptureCollections = {
       {
         name: 'Buddha',
         background: 'from-white via-white to-white',
-        image: BuddhaImage,
+        image: GodImage2,
         rating: 4.9,
         material: 'Hand-carved white marble',
         description:
           'A serene Buddha form shaped for meditation corners, temple rooms, and calm hospitality interiors.',
-        gallery: buildSculptureGallery('Buddha', BuddhaImage)
+        gallery: buildSculptureGallery('Buddha', GodImage2)
       },
       // {
       //   name: 'Krishna',
@@ -678,13 +680,10 @@ export default function CollectionPage() {
             className="collection-split-grid"
           >
             <div className="collection-split-panel collection-split-panel--sculptures">
-              <video
+              <img
                 className="collection-split-video"
-                src="/skull.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
+                src={Pic3}
+                alt="Sculptures Collection"
                 aria-hidden="true"
               />
               <div className="collection-split-texture marble-texture" />
@@ -705,13 +704,10 @@ export default function CollectionPage() {
             </div>
 
             <div className="collection-split-panel collection-split-panel--paintings">
-              <video
+              <img
                 className="collection-split-video"
-                src="/paint.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
+                src={Pic2}
+                alt="Paintings Collection"
                 aria-hidden="true"
               />
               <div className="collection-split-texture marble-texture" />
