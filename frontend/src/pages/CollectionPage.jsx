@@ -16,7 +16,7 @@ import AnimalImage3 from '../assets/11.jpg';
 import DetailImage3 from '../assets/12.jpg';
 import DetailImage4 from '../assets/14.jpg';
 import DetailImage5 from '../assets/14.jpg';
-import BuddhaImage from '../assets/Buddha.jpeg';
+import BuddhaImage from '../assets/buddha1.png';
 import Paint from '../assets/Paint.jpg';
 import Paint2 from '../assets/paint2.jpeg';
 import Paint3 from '../assets/paint3.jpeg';
@@ -73,12 +73,12 @@ const sculptureCollections = {
       {
         name: 'Buddha',
         background: 'from-white via-white to-white',
-        image: GodImage1,
+        image: BuddhaImage,
         rating: 4.9,
         material: 'Hand-carved white marble',
         description:
           'A serene Buddha form shaped for meditation corners, temple rooms, and calm hospitality interiors.',
-        gallery: buildSculptureGallery('Buddha', GodImage1)
+        gallery: buildSculptureGallery('Buddha', BuddhaImage)
       },
       // {
       //   name: 'Krishna',
@@ -192,7 +192,7 @@ const paintingCollections = {
         gallery: buildPaintingGallery('Royal Portrait', Paint)
       },
       {
-        name: 'Illusional Self Portrait',
+        name: 'Self Portrait',
         background: 'from-white via-white to-white',
         image: Paint4,
         rating: 4.7,

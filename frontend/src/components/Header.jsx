@@ -68,7 +68,7 @@ const Header = () => {
         <div className="flex justify-start">
           <button 
             onClick={() => setIsMenuOpen(true)}
-            className="text-taupe-brown hover:text-taupe-brown/70 transition-colors" 
+            className="cursor-pointer text-taupe-brown hover:text-taupe-brown/70 transition-colors" 
             aria-label="Open Menu"
           >
             <Menu size={24} strokeWidth={1.5} />
@@ -77,7 +77,7 @@ const Header = () => {
         
         <div className="flex flex-col items-center justify-center">
           {/* Stylized Logo Symbol */}
-          <Link to="/" className="mb-1 hover:opacity-80 transition-opacity">
+          <Link to="/" className="mb-1 cursor-pointer hover:opacity-80 transition-opacity">
             <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Top left circle */}
               <circle cx="28" cy="22" r="5" stroke="#111111" strokeWidth="4" fill="none" />
@@ -89,18 +89,18 @@ const Header = () => {
           </Link>
           {/* SIRPPAM Box */}
           <div className="text-base font-serif text-neutral-900 uppercase font-medium tracking-[4px] border border-neutral-900 px-4 py-1">
-            <Link to="/">Sirppam</Link>
+            <Link to="/" className="cursor-pointer">Sirppam</Link>
           </div>
         </div>
         
         <div className="flex justify-end items-center gap-6 text-taupe-brown">
-          <button className="hover:text-taupe-brown/70 transition-colors hidden sm:block" aria-label="Wishlist">
+          <button className="hidden cursor-pointer hover:text-taupe-brown/70 transition-colors sm:block" aria-label="Wishlist">
             <Heart size={24} strokeWidth={1.5} />
           </button>
-          <button className="hover:text-taupe-brown/70 transition-colors" aria-label="Cart">
+          <button className="cursor-pointer hover:text-taupe-brown/70 transition-colors" aria-label="Cart">
             <ShoppingCart size={24} strokeWidth={1.5} />
           </button>
-          <button className="hover:text-taupe-brown/70 transition-colors" aria-label="Profile">
+          <button className="cursor-pointer hover:text-taupe-brown/70 transition-colors" aria-label="Profile">
             <User size={24} strokeWidth={1.5} />
           </button>
         </div>
@@ -118,7 +118,7 @@ const Header = () => {
             {/* Close Button */}
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-6 left-6 md:top-8 md:left-12 text-taupe-brown hover:text-taupe-brown/70 transition-colors"
+              className="absolute left-6 top-6 cursor-pointer text-taupe-brown hover:text-taupe-brown/70 transition-colors md:left-12 md:top-8"
               aria-label="Close Menu"
             >
               <X size={32} strokeWidth={1} />
@@ -133,7 +133,7 @@ const Header = () => {
                 <motion.div key={link.name} variants={linkItemVariants}>
                   <Link 
                     to={link.path}
-                    className={`text-3xl md:text-4xl font-serif tracking-[2px] transition-colors ${
+                    className={`cursor-pointer text-3xl font-serif tracking-[2px] transition-colors md:text-4xl ${
                       location.pathname === link.path 
                         ? 'text-neutral-900' 
                         : 'text-neutral-900/40 hover:text-neutral-900'
