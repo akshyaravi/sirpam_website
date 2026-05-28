@@ -3,18 +3,18 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Star, X } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import GodImage1 from '../assets/1.jpg';
-import GodImage2 from '../assets/2.png';
-import GodImage3 from '../assets/saraswathi.png';
-import GodImage4 from '../assets/sai.png';
-import GodImage5 from '../assets/5.png';
-import GodImage6 from '../assets/ganesha.png';
+import GodImage2 from '../assets/buddha1.png';
+import GodImage3 from '../assets/saraswathi1.png';
+import GodImage4 from '../assets/sai1.png';
+import GodImage5 from '../assets/ganesha1.png';
+import GodImage6 from '../assets/ganesha1.png';
 import AnimalImage1 from '../assets/7.jpg';
 import DetailImage1 from '../assets/8.jpg';
 import DetailImage2 from '../assets/9.jpg';
 import AnimalImage2 from '../assets/10.jpg';
 import AnimalImage3 from '../assets/11.jpg';
 import DetailImage3 from '../assets/12.jpg';
-import DetailImage4 from '../assets/13.png';
+import DetailImage4 from '../assets/14.jpg';
 import DetailImage5 from '../assets/14.jpg';
 import BuddhaImage from '../assets/Buddha.jpeg';
 import Paint from '../assets/Paint.jpg';
@@ -72,7 +72,7 @@ const sculptureCollections = {
     items: [
       {
         name: 'Buddha',
-        background: 'from-[#e7dfd0] via-[#f6f1e8] to-[#a58a66]',
+        background: 'from-white via-white to-white',
         image: GodImage1,
         rating: 4.9,
         material: 'Hand-carved white marble',
@@ -82,7 +82,7 @@ const sculptureCollections = {
       },
       // {
       //   name: 'Krishna',
-      //   background: 'from-[#eadfce] via-[#f8f3eb] to-[#8d7a62]',
+      //   background: 'from-white via-white to-white',
       //   image: GodImage2,
       //   rating: 4.8,
       //   material: 'Polished marble stone',
@@ -92,7 +92,7 @@ const sculptureCollections = {
       // },
       {
         name: 'Saraswati',
-        background: 'from-[#efe3d6] via-[#faf6ee] to-[#b89173]',
+        background: 'from-white via-white to-white',
         image: GodImage3,
         rating: 4.9,
         material: 'Premium hand-finished marble',
@@ -102,7 +102,7 @@ const sculptureCollections = {
       },
       {
         name: 'Sai Baba',
-        background: 'from-[#d9ddd9] via-[#f4f1ea] to-[#82867c]',
+        background: 'from-white via-white to-white',
         image: GodImage4,
         rating: 4.9,
         material: 'Solid white marble',
@@ -112,7 +112,7 @@ const sculptureCollections = {
       },
       // {
       //   name: 'Natraj',
-      //   background: 'from-[#eadfce] via-[#faf4ec] to-[#97684a]',
+      //   background: 'from-white via-white to-white',
       //   image: GodImage5,
       //   rating: 4.7,
       //   material: 'Artisan carved marble',
@@ -122,7 +122,7 @@ const sculptureCollections = {
       // },
       {
         name: 'Ganesha',
-        background: 'from-[#ece5d8] via-[#faf7f0] to-[#9f8c72]',
+        background: 'from-white via-white to-white',
         image: GodImage6,
         rating: 4.9,
         material: 'Museum-grade marble finish',
@@ -141,7 +141,7 @@ const sculptureCollections = {
     items: [
       {
         name: 'Elephant',
-        background: 'from-[#dfe1da] via-[#f5f2eb] to-[#868780]',
+        background: 'from-white via-white to-white',
         image: AnimalImage1,
         rating: 4.8,
         material: 'Weather-ready sculpted stone',
@@ -151,7 +151,7 @@ const sculptureCollections = {
       },
       {
         name: 'Horse',
-        background: 'from-[#efe3d6] via-[#f9f4ec] to-[#93694c]',
+       background: 'from-white via-white to-white',
         image: AnimalImage2,
         rating: 4.7,
         material: 'Natural stone composite',
@@ -161,7 +161,7 @@ const sculptureCollections = {
       },
       // {
       //   name: 'Royal Horse',
-      //   background: 'from-[#e8e0d7] via-[#f7f3ec] to-[#7a7d80]',
+      //   background: 'from-white via-white to-white',
       //   image: AnimalImage3,
       //   rating: 4.8,
       //   material: 'Hand-finished premium stone',
@@ -183,7 +183,7 @@ const paintingCollections = {
     items: [
       {
         name: 'A Beautiful Lady',
-        background: 'from-[#6b3249] via-[#a34c5f] to-[#d98969]',
+       background: 'from-white via-white to-white',
         image: Paint,
         rating: 4.8,
         material: 'Oil on canvas',
@@ -193,7 +193,7 @@ const paintingCollections = {
       },
       {
         name: 'Illusional Self Portrait',
-        background: 'from-[#7a2f47] via-[#b15363] to-[#f1a26a]',
+        background: 'from-white via-white to-white',
         image: Paint4,
         rating: 4.7,
         material: 'Layered acrylic on canvas',
@@ -203,7 +203,7 @@ const paintingCollections = {
       },
       {
         name: 'Classic Dancer',
-        background: 'from-[#5e3456] via-[#9a4e6b] to-[#e59a70]',
+        background: 'from-white via-white to-white',
         image: Paint5,
         rating: 4.8,
         material: 'Mixed media canvas',
@@ -213,7 +213,7 @@ const paintingCollections = {
       },
       {
         name: 'Man In Lake ',
-        background: 'from-[#6b3249] via-[#a34c5f] to-[#d98969]',
+       background: 'from-white via-white to-white',
         image: Paint6,
         rating: 4.8,
         material: 'Oil on canvas',
@@ -223,7 +223,7 @@ const paintingCollections = {
       },
       {
         name: 'The Ship',
-        background: 'from-[#7a2f47] via-[#b15363] to-[#f1a26a]',
+        background: 'from-white via-white to-white',
         image: Paint7,
         rating: 4.7,
         material: 'Layered acrylic on canvas',
@@ -233,7 +233,7 @@ const paintingCollections = {
       },
       {
         name: 'Dancing Posture ',
-        background: 'from-[#5e3456] via-[#9a4e6b] to-[#e59a70]',
+        background: 'from-white via-white to-white',
         image: Paint2,
         rating: 4.9,
         material: 'Mixed media canvas',
@@ -243,7 +243,7 @@ const paintingCollections = {
       },
       {
         name: 'Saffron Muse',
-        background: 'from-[#6b3249] via-[#a34c5f] to-[#d98969]',
+        background: 'from-white via-white to-white',
         image: Paint3,
         rating: 4.8,
         material: 'Oil on canvas',
@@ -262,7 +262,7 @@ const paintingCollections = {
     items: [
       {
         name: 'Temple Grace',
-        background: 'from-[#5d3a3e] via-[#8b5950] to-[#d5a16d]',
+        background: 'from-white via-white to-white',
         image: Paint,
         rating: 4.9,
         material: 'Oil and pigment on canvas',
@@ -272,7 +272,7 @@ const paintingCollections = {
       },
       {
         name: 'Sacred Canvas',
-        background: 'from-[#72413f] via-[#9e6455] to-[#e0ac70]',
+        background: 'from-white via-white to-white',
         image: Paint,
         rating: 4.8,
         material: 'Hand-finished canvas painting',
@@ -282,7 +282,7 @@ const paintingCollections = {
       },
       {
         name: 'Divine Reflection',
-        background: 'from-[#66344e] via-[#9d5569] to-[#e39e72]',
+        background: 'from-white via-white to-white',
         image: Paint,
         rating: 4.9,
         material: 'Textured mixed media canvas',
@@ -377,7 +377,7 @@ const ProductCard = ({
       aria-label={`Open ${item.name} details`}
     >
       <div className="collection-card-media">
-        <div className={`collection-card-gradient absolute inset-0 bg-gradient-to-br ${item.background}`}>
+        <div className="collection-card-gradient absolute inset-0">
           <div className="marble-texture absolute inset-0 opacity-25" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(0,0,0,0.08))]" />
           <img

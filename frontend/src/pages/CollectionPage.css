@@ -321,6 +321,48 @@
 .collection-card-gradient {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f3fffb 35%,
+      #d7f5eb 60%,
+      #ffffff 100%
+    );
+  background-size: 250% 250%;
+  animation: emeraldWave 6s ease infinite;
+}
+
+.collection-card-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(1, 46, 42, 0.22),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(16, 185, 129, 0.18),
+      transparent 42%
+    );
+  mix-blend-mode: multiply;
+}
+@keyframes emeraldWave {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .collection-card-image {
