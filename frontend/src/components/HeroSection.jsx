@@ -1,9 +1,21 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const patternY = useTransform(scrollYProgress, [0, 1], ['-6%', '9%']);
+  const patternPositionX = useTransform(scrollYProgress, [0, 1], ['0px', '-44px']);
+  const patternPositionY = useTransform(scrollYProgress, [0, 1], ['0px', '88px']);
+  const secondPatternY = useTransform(scrollYProgress, [0, 1], ['8%', '-4%']);
+  const secondPatternPositionX = useTransform(scrollYProgress, [0, 1], ['44px', '0px']);
+  const secondPatternPositionY = useTransform(scrollYProgress, [0, 1], ['88px', '0px']);
+
   // Animation variants
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -22,10 +34,22 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden luxury-gradient marble-texture">
+    <div ref={heroRef} className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden luxury-gradient marble-texture">
+      <motion.div
+        className="home-hero-pattern pointer-events-none absolute inset-x-0 -top-[16%] -bottom-[16%] z-[1] opacity-45 will-change-transform"
+        style={{ y: patternY, backgroundPositionX: patternPositionX, backgroundPositionY: patternPositionY }}
+      />
+      <motion.div
+        className="home-hero-pattern home-hero-pattern-secondary pointer-events-none absolute inset-x-0 -top-[16%] -bottom-[16%] z-[1] opacity-35 will-change-transform"
+        style={{
+          y: secondPatternY,
+          backgroundPositionX: secondPatternPositionX,
+          backgroundPositionY: secondPatternPositionY,
+        }}
+      />
       
       {/* Background Overlay */}
-      <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] z-0" />
+      <div className="absolute inset-0 bg-white/5 backdrop-blur-[1px] z-[2]" />
 
 
 
@@ -65,10 +89,13 @@ const HeroSection = () => {
               </span>
               <div className="absolute inset-0 bg-coconut-milk -translate-x-[101%] transition-transform duration-150 ease-out group-hover:translate-x-0" />
             </Link>
-            <button className="group relative overflow-hidden border border-emerald-dark bg-transparent px-6 py-2.5 font-sans text-xs uppercase tracking-[1.5px] text-emerald-dark transition-colors duration-300 hover:text-white">
+            <Link
+              to="/collection"
+              className="group relative overflow-hidden border border-emerald-dark bg-transparent px-6 py-2.5 font-sans text-xs uppercase tracking-[1.5px] text-emerald-dark transition-colors duration-300 hover:text-white"
+            >
               <span className="relative z-10 font-medium">EXPLORE COLLECTION</span>
               <div className="absolute inset-0 bg-emerald-dark -translate-x-[101%] transition-transform duration-150 ease-out group-hover:translate-x-0" />
-            </button>
+            </Link>
           </motion.div>
         </motion.div>
 

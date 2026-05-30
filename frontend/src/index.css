@@ -13,6 +13,16 @@
 }
 
 @layer base {
+  html,
+  body,
+  button,
+  a,
+  [role='button'],
+  input[type='button'],
+  input[type='submit'] {
+    cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23012E2A' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7 18 3l5 5-4 6' fill='%23D4C7AF'/%3E%3Cpath d='M17 12 27 22l-4 4L13 16' fill='%23EBE9DD'/%3E%3Cpath d='M10 10 6 14l4 4 4-4z' fill='%23A8A696'/%3E%3C/g%3E%3C/svg%3E") 7 7, pointer;
+  }
+
   body {
     @apply bg-coconut-milk text-taupe-brown font-sans antialiased;
   }
@@ -23,6 +33,27 @@
 }
 
 @layer utilities {
+  @keyframes hammer-click-shake {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate3d(-1px, 1px, 0) rotate(-0.6deg);
+    }
+    50% {
+      transform: translate3d(1px, -1px, 0) rotate(0.6deg);
+    }
+    75% {
+      transform: translate3d(-1px, 0, 0) rotate(-0.35deg);
+    }
+  }
+
+  button:active,
+  a:active,
+  [role='button']:active {
+    animation: hammer-click-shake 180ms ease-in-out;
+  }
+
   @keyframes footer-underline-loading {
     0% {
       transform: scaleX(0);
@@ -75,6 +106,21 @@
   
   .marble-texture {
     background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2VGaWx0ZXIpIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+');
+  }
+
+  .home-hero-pattern {
+    background-image:
+      linear-gradient(45deg, transparent 48.6%, rgba(1, 46, 42, 0.16) 49.4%, rgba(1, 46, 42, 0.16) 50.6%, transparent 51.4%),
+      linear-gradient(-45deg, transparent 48.6%, rgba(1, 46, 42, 0.16) 49.4%, rgba(1, 46, 42, 0.16) 50.6%, transparent 51.4%),
+      linear-gradient(45deg, transparent 49.8%, rgba(255, 255, 255, 0.45) 50%, transparent 50.2%),
+      linear-gradient(-45deg, transparent 49.8%, rgba(255, 255, 255, 0.45) 50%, transparent 50.2%),
+      radial-gradient(circle at center, rgba(1, 46, 42, 0.11) 1px, transparent 1.5px);
+    background-size: 88px 88px, 88px 88px, 88px 88px, 88px 88px, 44px 44px;
+    background-position: center;
+  }
+
+  .home-hero-pattern-secondary {
+    background-size: 132px 132px, 132px 132px, 132px 132px, 132px 132px, 66px 66px;
   }
   
   .luxury-gradient {

@@ -93,8 +93,8 @@ const Header = () => {
           </div>
         </div>
         
-        <div className="flex justify-end items-center gap-6 text-taupe-brown">
-          <button className="hidden cursor-pointer hover:text-taupe-brown/70 transition-colors sm:block" aria-label="Wishlist">
+        <div className="flex justify-end items-center gap-3 text-taupe-brown sm:gap-6">
+          <button className="cursor-pointer hover:text-taupe-brown/70 transition-colors" aria-label="Wishlist">
             <Heart size={24} strokeWidth={1.5} />
           </button>
           <button className="cursor-pointer hover:text-taupe-brown/70 transition-colors" aria-label="Cart">

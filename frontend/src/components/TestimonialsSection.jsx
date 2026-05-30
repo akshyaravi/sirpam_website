@@ -73,21 +73,21 @@ const TestimonialsSection = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, delay: i * 0.2, ease: "easeOut" }}
               whileHover={{ y: -8, scale: 1.01 }}
-              className="relative aspect-square bg-white/40 backdrop-blur-md rounded-none overflow-hidden border border-taupe-brown/10 shadow-[0_8px_30px_rgb(118,107,93,0.06)] hover:shadow-[0_16px_40px_rgb(118,107,93,0.12)] group flex flex-col"
+              className="relative bg-white/40 backdrop-blur-md rounded-none overflow-hidden border border-taupe-brown/10 shadow-[0_8px_30px_rgb(118,107,93,0.06)] hover:shadow-[0_16px_40px_rgb(118,107,93,0.12)] group flex flex-col md:aspect-square"
             >
-              <div className="p-6 md:p-8 flex h-full flex-col flex-grow">
-                <div className="mb-6 self-start bg-coconut-milk/90 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest text-taupe-brown font-medium shadow-sm">
+              <div className="p-5 md:p-8 flex h-full flex-col flex-grow">
+                <div className="mb-4 md:mb-6 self-start bg-coconut-milk/90 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest text-taupe-brown font-medium shadow-sm">
                   {t.category}
                 </div>
-                <div className="flex items-center gap-1 mb-5 text-[#B8A37E]">
+                <div className="flex items-center gap-1 mb-4 md:mb-5 text-[#B8A37E]">
                   {[...Array(t.rating)].map((_, index) => <Star key={index} size={14} fill="currentColor" />)}
                 </div>
                 
-                <p className="font-serif italic text-taupe-brown/90 leading-relaxed text-lg mb-8 flex-grow">
+                <p className="font-serif italic text-taupe-brown/90 leading-relaxed text-base md:text-lg mb-6 md:mb-8 flex-grow">
                   "{t.review}"
                 </p>
                 
-                <div className="flex items-center gap-4 mt-auto border-t border-taupe-brown/10 pt-6">
+                <div className="flex items-center gap-4 mt-auto border-t border-taupe-brown/10 pt-5 md:pt-6">
                   <img src={t.profileImg} alt={t.name} className="w-12 h-12 rounded-full object-cover border border-taupe-brown/20 p-[2px]" />
                   <div>
                     <h4 className="font-sans font-medium text-taupe-brown text-sm tracking-wide">{t.name}</h4>
