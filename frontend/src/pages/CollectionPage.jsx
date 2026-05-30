@@ -689,8 +689,8 @@ export default function CollectionPage() {
               <div className="collection-split-texture marble-texture" />
               <div className="collection-split-copy">
                 <p className="collection-kicker">Collection One</p>
-                <h1 className="collection-panel-title">Sculptures</h1>
-                <p className="collection-panel-text">
+                <h1 className="collection-panel-title" style={{ color: 'var(--color-emerald-dark)' }}>Sculptures</h1>
+                <p className="collection-panel-text" style={{ color: 'var(--color-emerald-dark)' }}>
                   Explore sacred marble gods and handcrafted statement sculptures.
                 </p>
                 <button
