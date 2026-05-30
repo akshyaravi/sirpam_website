@@ -12,7 +12,7 @@
 .collection-hero {
   min-height: 100vh;
   border-bottom: 1px solid rgba(118, 107, 93, 0.1);
-  background: linear-gradient(180deg, rgba(235, 233, 221, 0.45), rgba(255, 255, 255, 0.92));
+  background: var(--color-coconut-milk);
 }
 
 .collection-shell {

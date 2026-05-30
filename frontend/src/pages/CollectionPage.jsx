@@ -8,10 +8,10 @@ import GodImage3 from '../assets/saraswathi1.png';
 import GodImage4 from '../assets/sai1.png';
 import GodImage5 from '../assets/ganesha1.png';
 import GodImage6 from '../assets/ganesha1.png';
-import AnimalImage1 from '../assets/7.jpg';
+import AnimalImage1 from '../assets/elephant.png';
 import DetailImage1 from '../assets/8.jpg';
 import DetailImage2 from '../assets/9.jpg';
-import AnimalImage2 from '../assets/10.jpg';
+import AnimalImage2 from '../assets/horse.png';
 import AnimalImage3 from '../assets/11.jpg';
 import DetailImage3 from '../assets/12.jpg';
 import DetailImage4 from '../assets/14.jpg';
@@ -156,6 +156,7 @@ const sculptureCollections = {
         name: 'Horse',
        background: 'from-white via-white to-white',
         image: AnimalImage2,
+        imageStyle: {  transform: 'scale(1.3) translateY(15px)' },
         rating: 4.7,
         material: 'Natural stone composite',
         description:

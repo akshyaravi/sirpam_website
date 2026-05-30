@@ -28,7 +28,7 @@ export default function CustomizationPage() {
   return (
     <div className="min-h-screen bg-coconut-milk text-taupe-brown font-sans selection:bg-sage/30">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden luxury-gradient marble-texture px-6">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-coconut-milk marble-texture px-6">
         <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
         
         <motion.div 
